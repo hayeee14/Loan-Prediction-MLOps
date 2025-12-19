@@ -16,9 +16,9 @@ jobs:
       - name: Install Libs
         run: pip install mlflow scikit-learn pandas
 
-      - name: Run MLflow Project
-        # UBAH BAGIAN INI: Ganti --no-conda menjadi --env-manager local
-        run: mlflow run MLProject/ --env-manager local
+      - name: Run Training Directly
+        # Langsung panggil file python agar tidak berat di database MLflow
+        run: python MLProject/modelling.py
 
       - name: Save Artifacts
         if: always()
