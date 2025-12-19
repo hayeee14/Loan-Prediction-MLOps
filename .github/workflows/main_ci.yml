@@ -17,12 +17,12 @@ jobs:
         run: pip install mlflow scikit-learn pandas
 
       - name: Run MLflow Project
-        # Menjalankan MLflow langsung ke folder target
-        run: mlflow run MLProject/ --no-conda
+        # UBAH BAGIAN INI: Ganti --no-conda menjadi --env-manager local
+        run: mlflow run MLProject/ --env-manager local
 
       - name: Save Artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: mlflow-results
+          name: mlflow-artifacts
           path: mlruns/
