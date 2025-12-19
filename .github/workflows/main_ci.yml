@@ -17,12 +17,12 @@ jobs:
         run: pip install mlflow scikit-learn pandas
 
       - name: Run MLflow Project
-        # Perintah ini yang diminta oleh Reviewer
+        # Menjalankan MLflow langsung ke folder target
         run: mlflow run MLProject/ --no-conda
 
       - name: Save Artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: mlflow-artifacts
+          name: mlflow-results
           path: mlruns/
